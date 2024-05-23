@@ -11,7 +11,7 @@ public class HomePageTest extends BaseTest {
         tokensPage.openTokensPage();
         String expectedTitle = "Explore TON blockchain assets in real time";
         String actualTitle = tokensPage.getMainTitleText();
-        Assert.assertEquals(actualTitle, expectedTitle, "Main title text should match the expected value");
+        Assert.assertEquals(actualTitle, expectedTitle, "Исследуйте проекты TON блокчейна в режиме реального времени");
     }
 }
 
