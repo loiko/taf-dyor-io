@@ -9,9 +9,9 @@ public class HomePageTest extends BaseTest {
     public void testMainTitleText() {
         TokensPage tokensPage = new TokensPage(page);
         tokensPage.openTokensPage();
-        String expectedTitle = "Explore TON blockchain assets in real time";
+        String expectedTitle = "Explore TO blockchain assets in real time";
         String actualTitle = tokensPage.getMainTitleText();
-        Assert.assertEquals(actualTitle, expectedTitle, "Исследуйте проекты TON блокчейна в режиме реального времени");
+        Assert.assertEquals(actualTitle, expectedTitle, "Error");
     }
 }
 

@@ -5,6 +5,8 @@ import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Page;
 import io.dyor.taf.po.TokensPage;
 import io.dyor.taf.singleton.Singleton;
+import io.dyor.taf.utils.ScreenshotUtil;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -24,7 +26,12 @@ public class BaseTest {
     }
 
     @AfterMethod
-    public void tearDown() {
+    public void tearDown(ITestResult result) {
+        if (result.getStatus() == ITestResult.FAILURE && page != null) {
+            String screenshotPath = "screenshots/" + result.getName() + ".png";
+            ScreenshotUtil.takeScreenshot(page, screenshotPath);
+            ScreenshotUtil.attachScreenshot(screenshotPath);
+        }
         if (page != null) {
             page.close();
         }
